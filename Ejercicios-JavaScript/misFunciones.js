@@ -97,8 +97,8 @@ let sumar =() =>{
     document.getElementById("totalS").innerHTML=res;
 }
 /**
- * Suma 2 inputs introducidos por el usuario
- * @method sumar
+ * Resta 2 inputs introducidos por el usuario
+ * @method restar
  */
 let restar =() =>{
     let res, s1, s2;
@@ -359,16 +359,28 @@ let animarAuto = () => {
         x=0;
     }
 }
+/**
+ * Permite detener la animacion del auto
+ * @method detenerAuto
+ */
 var intervalId;
 let detenerAuto = () => {
     console.log("Se detuvo el auto")
     clearInterval(intervalId); // Detener la animación
 }
+/**
+ * Permite dar inicio a una animacion
+ * @method comenzarAnimacion
+ */
 let comenzarAnimacion = () => {
     console.log("Se llamo a comenzar animacion")
     intervalId = setInterval(animarAuto, 10);
     setTimeout(detenerAuto, 6000);
 }
+/**
+ * Otra forma de animar el auto
+ * @method animarNuevo
+ */
 let animarNuevo = () => {
     requestAnimationFrame(animarAuto);
 }
@@ -414,3 +426,18 @@ let openDialog = () => {
     const dialog = document.getElementById("myDialog");
     dialog.showModal();
 }
+/**
+ * Otra forma de animar el auto pero con un setTimeout
+ * @method animarNuevo2
+ */
+let animarNuevo2 = () => {
+    setTimeout(cancelarAnimacion, 6000);
+    requestAnimationFrame(animarAuto);
+}
+/**
+ * Permite cancelar la animación utilizando el ID almacenado
+ * @method cancelarAnimacion
+ */
+let cancelarAnimacion = () => {
+    cancelAnimationFrame(animationId); // Cancelar la animación utilizando el ID almacenado
+};
